@@ -1,6 +1,6 @@
 import { Component, signal, computed, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TimerInputComponent } from '../../timer-input/timer-input.component';
+import { TimerInputComponent } from '../timer-input/timer-input.component';
 
 const DEFAULT_TIME = 5 * 60; // 5 minutes
 
