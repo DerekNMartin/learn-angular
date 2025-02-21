@@ -4,11 +4,18 @@ import { DetailsComponent } from './housingApp/details/details.component';
 
 import { TimerComponent } from './timerApp/timer/timer.component';
 
+import { HolidaysComponent } from './publicHolidayApp/holidays/holidays.component';
+
 const routeConfig: Routes = [
   {
     path: '',
     title: 'Home page',
     component: HomeComponent,
+  },
+  {
+    path: 'holidays',
+    component: HolidaysComponent,
+    title: 'Holidays page',
   },
   {
     path: 'timer',
