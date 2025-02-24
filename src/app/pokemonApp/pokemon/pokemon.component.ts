@@ -1,6 +1,6 @@
 import { Component, effect, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Observable, map, single, tap } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { Pokemon, PokemonResponse, PokemonService } from '../pokemon.service';
 import { PaginationComponent } from '../pagination/pagination.component';
 import { PokemonCardComponent } from '../pokemon-card/pokemon-card.component';
@@ -36,10 +36,11 @@ export class PokemonComponent {
     });
   }
 
-  getPokemon(offset?: number) {
-    return this.pokemonService.getPokemonList(offset).subscribe((response) => {
-      this.pokemonList = response.results;
-      this.total = response.count;
-    });
+  async getPokemon(offset?: number) {
+    const response = await firstValueFrom(
+      this.pokemonService.getPokemonList(offset)
+    );
+    this.pokemonList = response.results;
+    this.total = response.count;
   }
 }
